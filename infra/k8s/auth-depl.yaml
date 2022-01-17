@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: chikajohnson/auth
+          image: us.gcr.io/model-augury-337909/auth
 ---
 apiVersion: v1
 kind: Service

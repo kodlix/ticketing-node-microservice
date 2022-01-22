@@ -16,8 +16,10 @@ declare global{
 
 export const currentUser = async (req: Request, res:Response, next: NextFunction) => {
     if (!req.session?.jwt) {
+        console.log("jwt token is empty");        
         next();        
     }
+
     try {
         const payload = await jwt.verify(req.session?.jwt, process.env.JWT_KEY!) as IUserPayload;
         req.currentUser = payload;

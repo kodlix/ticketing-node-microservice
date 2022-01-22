@@ -5,12 +5,10 @@ deploy:
     manifests:
       - ./infra/k8s/*
 build:
-  # local:
-  #   push: false
-  googleCloudBuild:
-    projectId: model-augury-337909
+  local:
+    push: false
   artifacts:
-    - image: us.gcr.io/model-augury-337909/auth
+    - image: chikajohnson/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -18,3 +16,24 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
+
+
+
+# apiVersion: skaffold/v2beta26
+# kind: Config
+# deploy:
+#   kubectl:
+#     manifests:
+#       - ./infra/k8s/*
+# build:
+#   googleCloudBuild:
+#     projectId: model-augury-337909
+#   artifacts:
+#     - image: us.gcr.io/model-augury-337909/auth
+#       context: auth
+#       docker:
+#         dockerfile: Dockerfile
+#       sync:
+#         manual:
+#           - src: "src/**/*.ts"
+#             dest: .

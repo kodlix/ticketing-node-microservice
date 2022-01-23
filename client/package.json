@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 4500"
+    "dev": "next"
   },
   "author": "",
   "license": "ISC",
